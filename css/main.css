@@ -1,0 +1,29 @@
+/*-----BASE-----*/
+
+*,
+*::after,
+*::before	{
+	box-sizing: border-box;
+}
+
+body	{
+	margin: 0 auto;
+	padding: 0;
+	line-height: 1.5;
+	font-size: .895em;
+	font-family: sans-serif;
+}
+
+ul	{
+	padding: 0;
+	list-style: none;
+}
+
+li	{
+	display: block;
+}
+
+a	{
+	text-decoration: none;
+	color: orange;
+}
