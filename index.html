@@ -4,56 +4,36 @@
 		<title>Little Sunbeams Educare</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	
 	<body>
 		<header>
 				<!--<img class="logo" src="img/logo.jpg" alt="logo image"/>-->
-			<div class="letters">
-				<article class="word-1">
-					<span>L</span>
-					<span>I</span>
-					<span>T</span>
-					<span>T</span>
-					<span>L</span>
-					<span>E</span>
-				</article>
-				<article class="word-2">
-					<span>S</span>
-					<span>U</span>
-					<span>N</span>
-					<span>B</span>
-					<span>E</span>
-					<span>A</span>
-					<span>M</span>
-					<span>S</span>
-				</article>
-				<article class="word-3">
-					<span>E</span>
-					<span>D</span>
-					<span>U</span>
-					<span>C</span>
-					<span>A</span>
-					<span>R</span>
-					<span>E</span>
-				</article>
+			
+			<div class="heading">
+				<h1>Little Sunbeams Educare</h1>
+				<h2>5th Avenue, Grassy Park</h2>
 			</div>
-			<h1 class="name">5th Avenue, Grassy Park</h1>
-			<nav>
-				<ul class="main-nav">
-					<li><a href="">HOME</a></li>
-					<li><a href="">ENROLMENT</a></li>
-					<li><a href="">CONTACT</a></li>
+			<div role="navigation" id="menuToggle">
+				<input id="click" type="checkbox"/>
+				<!--THIS IS THE HAMBURGER IN THE SPANS-->
+				<span></span>
+				<span></span>
+				<span></span>
+				<ul id="menu">
+					<a href=""><li>HOME</li></a>
+					<a href=""><li>ENROLMENT</li></a>
+					<a href=""><li>CONTACT</li></a>
 				</ul>
-			</nav>
+			</div>
 		</header>
 		
 		<main>
 			
 			<div class="about-container">
-				<div class="principle">
+				<div class="principle clearfix">
 					<h1>the principle</h1>
 					<img class="principle-pic" src="img/" alt="a picture of the principle"/>
 					<p>Working at Red Cross Children’s Hospital for twenty seven years in the Occupational Therapy as an assistant inspired me to improve quality of life in children.</p> 
@@ -259,5 +239,17 @@
 		<footer>
 			<span>&copy; Little Sunbeams Educare</span>
 		</footer>
+		
+		<script>
+			const checkbox = document.getElementById('click');
+			const menu = document.getElementById('menu');
+			
+			if (checkbox.checked = false)	{
+				menu.style.visibility = 'hidden';
+			} else	{
+				menu.style.visibility = 'visible';
+			}
+			
+		</script>
 	</body>
 </html>

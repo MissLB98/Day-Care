@@ -13,6 +13,7 @@ body	{
 	margin: 0 auto;
 	padding: 0;
 	line-height: 1.5;
+	color: #232323;
 	font-size: 1em;
 	font-family: 'Tahoma', sans-serif;
 }
@@ -46,6 +47,15 @@ p	{
 	font-weight: 100;
 }
 
+a	{
+	text-decoration: none;
+	color: #232323;
+	transition: color .3s ease;
+}
+
+a:hover	{
+	color: tomato;
+}
 
 
 /**********************************************
@@ -63,94 +73,137 @@ main	{
 
 header	{
 	position: relative;
+	background: #eee;
+	height: 150px;
 	margin-bottom: 50px;
 }
 
-.logo	{
+.heading	{
+	width: 300px;
 	margin: 0 auto;
-	padding: 5px;
-	width: 100%;
-	max-width: 250px;
-	display: block;
 }
 
-
-.letters	{
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	max-width: 800px;
-	margin: 0 auto;
-	justify-content: space-around;
+.heading h1,
+.heading h2	{
+	text-align: center;
 }
 
-.word-1,
-.word-2,
-.word-3	{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin: 5px;
+.heading h1	{
+	font-size: 1.2rem;
 }
 
-.word-1 span,
-.word-2 span,
-.word-3 span	{
-	background: #FF8C00;
-	color: #fff;
-	align-self: center;
-	font-size: 1.35em;
-	font-weight: bold;
-	padding: 5px;
-	margin: 3px;
-	transition: transform .3s cubic-bezier(1,1.2,.5,1.4);
-}
-
-.word-1:hover span:hover,
-.word-2:hover span:hover,
-.word-3:hover span:hover	{
-	transform: translateY(20px) rotate(-8deg);
+.heading h2	{
+	font-size: .859rem;
+	font-weight: 100;
 }
 
 
 /*----NAVIGATION----*/
 
-nav	{
-	background: darkred;
-	width: 100%;
-}
 
-.main-nav	{
-	padding: 0;
-	margin: 0 auto;
-	list-style: none;
-	display: flex;
-	justify-content: space-around;
-	width: 100%;
-	max-width: 800px;
-}
 
-.main-nav li	{
+#menuToggle	{
 	display: block;
-	text-align: center;
-	width: 100%;
-	padding: 8px 0;
-	transition: .3s;
+	position: relative;
+	left: 13%;
+	top: 30px;
+	z-index: 1;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
-.main-nav li:hover	{
+#menuToggle input	{
+	display: block;
+	width: 40px;
+	height: 32px;
+	position: absolute;
+	top: -7px;
+	left: -5px;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 2;
+	-webkit-touch-callout: none;
+}
+
+#menuToggle span	{
+	display: block;
+	width: 45px;
+	height: 6px;
+	margin-bottom: 6px;
+	position: relative;
+	background: #454545;
+	border-radius: 5px;
+	z-index: 1;
+	transform-origin: 4px 0px;
+	transition: transform .5s cubic-bezier(.77,.2,.05,1),
+				background .5s cubic-bezier(.77,.2,.05,1),
+				opacity .55s ease;
+}
+
+#menuToggle span:first-child	{
+	transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)	{
+	transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span	{
+	opacity: 1;
+	transform: rotate(45deg) translate(-2px, -1px);
+	background: #fff;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)	{
+	opacity: 0;
+	transform: rotate(0deg) scale(.2,.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)	{
+	transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu	{
+	position: absolute;
+	width: 300px;
+	margin: -100px 0 0 -50px;
+	padding: 50px 0 50px 0;
+	padding-top: 125px;
+	overflow: hidden;
 	background: #000;
-	transform: scale(1.03);
+	list-style: none;
+	-webkit-font-smoothing: antialiased;
+	transform-origin: 0% 0%;
+	transform: translate(-100%, 0);
+	transition: transform .5s cubic-bezier(.77,.2,.05,1);
+	border-bottom-right-radius: 35%;
 }
 
-.main-nav li a	{
-	text-decoration: none;
+
+
+#menu a:hover li,
+#menu a:focus li	{
+	background: #fff;
+}
+
+#menu a li	{
+	font-size: 22px;
 	color: #fff;
-	margin: 4px;
+	padding: 10px 20px;
+}
+
+#menu a:hover li 	{
+	color: #000;
+}
+
+#menuToggle input:checked ~ ul	{
+	transform: none;
 }
 
 
 /*-----ABOUT-----*/
+
+
 
 .principle-pic	{
 	background: #ccc;
@@ -163,7 +216,11 @@ nav	{
 	border-radius: 50%;
 }
 
-
+.clearfix::after	{
+	content: '';
+	clear: both;
+	display: table;
+}
 
 
 
@@ -226,14 +283,32 @@ footer	{
 
 /*----MEDIA QUERIES----*/
 
+@media (min-width: 400px)	{
+	
+	.heading	{
+		position: absolute;
+		right: 8%;
+		top: 0;
+	}
+	.heading h1,
+	.heading h2	{
+		text-align: right;
+	}
+	
+	#menuToggle	{
+		left: 8%;
+	}
+}
+
+
 @media (min-width: 768px)	{
 	main	{
-		width: 85%;
+		width: 90%;
 		margin: 0 auto;
 	}
 	
 	.principle-pic	{
-		float: left;
+		float: right;
 		margin: 15px;
 	}
 	
@@ -247,6 +322,5 @@ footer	{
 	.daily-programmes table	{
 		width: 50%;
 	}
-	
 	
 }
